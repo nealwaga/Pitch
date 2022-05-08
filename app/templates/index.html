@@ -1,36 +1,44 @@
 {% extends 'base.html'%}
-
+{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}"> {% endblock %}
 {% block content %}
 
-
 <body>
-<br>
-<br>
-<br>
-
-<h3 style="text-align:center; color:#0d47a1" class="display-3">PITCH!</h3>
-
-<h1>{{message}}</h1>
-
-<div class="container">
-    <div class="card-columns">
-      {% for pitch in pitches %}
-
-      <div class="card">
-        <img class="card" src="{{pitch.image}}" alt="Card image cap" size="100px180">
-        <div class="card-body">
-          <h5 class="card-title">{{pitch.author}}</h5>
-          <p class="card-text">{{pitch.description}}</p>
-          <a href="{{pitch.url}}">
-            <p class="card-text">Click here to give a comment and view other comments.</p>
-          </a>
-        </div>
-        <div class="card-footer">
-          <small class="text-muted">Publish date:{{pitch.time}}</small>
+  <br>
+  <div class="d-flex justify-content-center">
+    <div class="card-groups">
+      <div class="card border-info mb-3" style="max-width: 35rem;">
+        <div class="card-header">Life</div>
+        <div class="card-body text-info">
+          <h5 class="card-title">Pitches about life</h5>
+          <p class="card-text">Want to change peoples mindsets, then give a pitch on best life practices!!</p>
+          <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Add Pitch</a></button>
+          <button type="button" class="btn btn-outline-primary"><a href="/categories/life">Read Pitches</a></button>
         </div>
       </div>
-      {% endfor %}
-    </div>
 
-{% endblock%}
+      <div class="card border-info mb-3" style="max-width: 35rem;">
+        <div class="card-header">Coding</div>
+        <div class="card-body text-info">
+          <h5 class="card-title">Pitches about coding</h5>
+          <p class="card-text">Want to change peoples mindsets, then give a pitch on best coding practices!!</p>
+          <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Add Pitch</a></button>
+          <button type="button" class="btn btn-outline-primary"><a href="/categories/coding">Read Pitches</a></button>
+        </div>
+      </div>
+
+      <div class="card border-info mb-3" style="max-width: 35rem;">
+        <div class="card-header">Funny</div>
+        <div class="card-body text-info">
+          <h5 class="card-title">Funny Pitches</h5>
+          <p class="card-text">Want to change peoples mindsets, then give a pitch on how best to make things fun!!</p>
+          <button type="button" class="btn btn-outline-primary"><a href="../pitch/">Add Pitch</a></button>
+          <button type="button" class="btn btn-outline-primary"><a href="/categories/funny">Read Pitches</a></button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% endblock%}
 </body>
