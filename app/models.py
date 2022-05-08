@@ -43,5 +43,9 @@ class Pitches(db.Model):
     time = db.Column(db.DateTime,default=datetime.utcnow)
     users = db.relationship('User',backref = 'pitches',lazy="dynamic")
 
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
+
     def __repr__(self):
         return f'User {self.name}'        
