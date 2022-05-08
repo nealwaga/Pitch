@@ -6,7 +6,7 @@ class User(db.Model):
     __tablename__ = 'users'
     id = db.Column(db.Integer,primary_key = True)
     author = db.Column(db.String(255))
-    pitches_author = db.Column(db.Integer,db.ForeignKey('pitches.author'))
+    pitches_id = db.Column(db.Integer,db.ForeignKey('pitches.id'))
 
 
 
@@ -14,8 +14,9 @@ class User(db.Model):
         return f'User {self.username}'
 
 
-class pitches(db.Model):
+class Pitches(db.Model):
     __tablename__= 'pitches'
+    id = db.Column(db.Integer,primary_key = True)
     category = db.Column(db.String(255))
     pitch = db.Column(db.String(255))
     time = db.Column(db.String(255))
