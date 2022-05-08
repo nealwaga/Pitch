@@ -47,5 +47,10 @@ class Pitches(db.Model):
         db.session.add(self)
         db.session.commit()
 
+    @classmethod
+    def get_pitches(cls,cat):
+        pitch = Pitches.query.filter_by(category=cat).all()
+        return pitch
+
     def __repr__(self):
         return f'User {self.name}'        
