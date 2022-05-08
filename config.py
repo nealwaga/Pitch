@@ -3,6 +3,10 @@ import os
 
 
 class Config:
+
+    #Location of the database with authentication   
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neal:Wneal9.@localhost/pitch'
+
     @staticmethod
     def init_app(app):
         pass

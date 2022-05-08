@@ -8,9 +8,29 @@
 <br>
 <br>
 
-<h3 style="text-align:center; color:#0d47a1" class="display-3"> PITCH! </h3>
+<h3 style="text-align:center; color:#0d47a1" class="display-3">PITCH!</h3>
 
 <h1>{{message}}</h1>
+
+<div class="container">
+    <div class="card-columns">
+      {% for pitch in pitches %}
+
+      <div class="card">
+        <img class="card" src="{{pitch.image}}" alt="Card image cap" size="100px180">
+        <div class="card-body">
+          <h5 class="card-title">{{pitch.author}}</h5>
+          <p class="card-text">{{pitch.description}}</p>
+          <a href="{{pitch.url}}">
+            <p class="card-text">Click here to give a comment and view other comments.</p>
+          </a>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Publish date:{{pitch.time}}</small>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
 
 {% endblock%}
 </body>
