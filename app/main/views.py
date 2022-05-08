@@ -8,7 +8,7 @@ from . import main
 def index():
     '''
     my index page
-    :return:
+    return
     '''
     message= "Hello"
     return render_template('index.html', message=message)
