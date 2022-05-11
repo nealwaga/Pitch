@@ -1,3 +1,4 @@
+from tkinter import PhotoImage
 from flask import render_template
 from flask import render_template,request,redirect,url_for
 from flask_login import login_required,current_user
@@ -81,7 +82,7 @@ def update_profile(uname):
 def update_pic(uname):
     user = User.query.filter_by(author = uname).first()
     if 'photo' in request.files:
-        filename = photos.save(request.files['photo'])
+        filename = PhotoImage.save(request.files['photo'])
         path = f'photos/{filename}'
         user.profile_pic_path = path
         db.session.commit()

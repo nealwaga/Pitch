@@ -1,4 +1,3 @@
-from distutils.debug import DEBUG
 import os
 
 class Config:
@@ -7,6 +6,8 @@ class Config:
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://neal:Wneal9.@localhost/pitch'
 
     SECRET_KEY=os.environ.get('SECRET_KEY')
+
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
 
     #Email configs
     MAIL_SERVER = 'smtp.googlemail.com'
