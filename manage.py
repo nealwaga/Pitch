@@ -4,7 +4,7 @@ from  flask_migrate import Migrate, MigrateCommand
 from app.models import User, Pitches, Comments
 
 
-app = create_app('development')
+#app = create_app('development')
 #app = create_app('production')
 
 manager = Manager(app)
@@ -27,5 +27,5 @@ manager.add_command('db',MigrateCommand)
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',port=9050)
-    #manager.run()
+    #app.run(host='0.0.0.0',port=9050)
+    manager.run()
