@@ -5,6 +5,7 @@ from app.models import User, Pitches, Comments
 
 
 app = create_app('development')
+#app = create_app('production')
 
 manager = Manager(app)
 manager.add_command('server',Server)
@@ -15,6 +16,7 @@ def test():
     import unittest
     tests = unittest.TestLoader().discover('tests')
     unittest.TextTestRunner(verbosity=2).run(tests)
+    pass 
 
 @manager.shell
 def make_shell_context():
@@ -25,5 +27,5 @@ manager.add_command('db',MigrateCommand)
 
 
 if __name__ == '__main__':
-    #app.run()
-    manager.run()
+    app.run(host='0.0.0.0',port=9050)
+    #manager.run()
